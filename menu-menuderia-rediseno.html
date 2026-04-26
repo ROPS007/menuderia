@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Menudería Guadalajara — Menú Digital</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,500&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --brick:#8B2E00;
+  --brick2:#B03A00;
+  --clay:#C4622D;
+  --gold:#D4A843;
+  --cream:#FAF6EF;
+  --warm:#F2EBE0;
+  --dark:#1A0F0A;
+  --dark2:#261710;
+  --card:#FDF9F4;
+  --muted:#8A7060;
+  --text:#2C1A10;
+  --border:rgba(139,46,0,0.12)
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+::selection{background:rgba(196,98,45,.25);color:var(--dark)}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--warm)}::-webkit-scrollbar-thumb{background:var(--brick);border-radius:2px}
+
+/* ── HEADER ── */
+header{position:sticky;top:0;z-index:100;background:rgba(26,15,10,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,168,67,.2)}
+.header-inner{max-width:900px;margin:0 auto;padding:.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.hd-logo{display:flex;align-items:center;gap:.75rem}
+.hd-logo-icon{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--brick),var(--clay));display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.hd-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#FAF6EF;line-height:1.1}
+.hd-sub{font-size:.58rem;color:rgba(212,168,67,.7);letter-spacing:.14em;text-transform:uppercase;margin-top:.1rem}
+.hd-badge{display:flex;align-items:center;gap:.4rem;background:rgba(212,168,67,.12);border:1px solid rgba(212,168,67,.25);border-radius:100px;padding:.3rem .75rem;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);flex-shrink:0}
+.hd-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── HERO BANNER ── */
+.hero-banner{background:linear-gradient(135deg,var(--dark) 0%,var(--dark2) 60%,rgba(139,46,0,.4) 100%);padding:2.5rem 1.5rem;text-align:center;position:relative;overflow:hidden}
+.hero-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 70% 50%,rgba(212,168,67,.08),transparent 65%)}
+.hero-pattern{position:absolute;inset:0;opacity:.04;background-image:repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 50%);background-size:20px 20px}
+.hero-content{position:relative;z-index:1}
+.hero-ey{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;opacity:.8}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,6vw,3.5rem);font-weight:900;color:#FAF6EF;line-height:1.05;margin-bottom:.5rem}
+.hero-title em{font-style:italic;color:var(--clay)}
+.hero-sub{font-size:.85rem;color:rgba(250,246,239,.45);font-weight:300;max-width:380px;margin:0 auto .1rem}
+.hero-line{width:3rem;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:.75rem auto 0}
+
+/* ── NAV TABS ── */
+.nav-tabs-wrap{background:var(--dark);position:sticky;top:68px;z-index:99;border-bottom:1px solid rgba(212,168,67,.12)}
+.nav-tabs{display:flex;overflow-x:auto;scrollbar-width:none;max-width:900px;margin:0 auto;padding:0 1rem}
+.nav-tabs::-webkit-scrollbar{display:none}
+.tab{flex-shrink:0;padding:.8rem 1.2rem;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(250,246,239,.4);cursor:pointer;border-bottom:2px solid transparent;transition:all .25s;white-space:nowrap;display:flex;align-items:center;gap:.4rem}
+.tab.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tab:hover{color:rgba(250,246,239,.7)}
+.tab-icon{font-size:.9rem}
+
+/* ── MAIN ── */
+main{max-width:900px;margin:0 auto;padding:0 1rem 4rem}
+
+/* ── SECTION ── */
+.menu-section{padding:2.5rem 0;border-bottom:1px solid var(--border)}
+.menu-section:last-child{border-bottom:none}
+.sec-header{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.sec-icon{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--brick),var(--clay));display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;box-shadow:0 8px 24px rgba(139,46,0,.25)}
+.sec-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--text)}
+.sec-subtitle{font-size:.72rem;color:var(--muted);margin-top:.15rem;letter-spacing:.04em}
+
+/* ── ITEMS GRID ── */
+.items-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.items-list{display:flex;flex-direction:column;gap:.75rem}
+
+/* ── ITEM CARD ── */
+.item{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s;cursor:default}
+.item:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(139,46,0,.12)}
+.item-img{width:100%;aspect-ratio:4/3;object-fit:cover;background:linear-gradient(135deg,var(--warm),rgba(196,98,45,.15));display:flex;align-items:center;justify-content:center;font-size:2.5rem;position:relative;overflow:hidden}
+.item-img-placeholder{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,var(--warm) 0%,rgba(196,98,45,.12) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.item-img-placeholder .ph-icon{font-size:2.5rem;opacity:.4}
+.item-img-placeholder .ph-label{font-size:.6rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;opacity:.5}
+.item-body{padding:1rem}
+.item-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.2rem;line-height:1.2}
+.item-desc{font-size:.72rem;color:var(--muted);line-height:1.55;margin-bottom:.75rem}
+.item-footer{display:flex;align-items:center;justify-content:space-between}
+.item-price{font-family:'DM Mono',monospace;font-size:1.05rem;font-weight:500;color:var(--brick)}
+.item-price-secondary{font-size:.68rem;color:var(--muted);margin-top:.1rem}
+.item-tag{font-size:.58rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .6rem;border-radius:100px}
+.tag-popular{background:rgba(212,168,67,.12);color:var(--gold);border:1px solid rgba(212,168,67,.25)}
+.tag-especial{background:rgba(139,46,0,.08);color:var(--brick);border:1px solid rgba(139,46,0,.18)}
+.tag-nuevo{background:rgba(34,139,34,.08);color:#2E7D32;border:1px solid rgba(46,125,50,.18)}
+
+/* ── LIST ITEM (for beverages/simple items) ── */
+.list-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem 1.2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:transform .25s,box-shadow .25s}
+.list-item:hover{transform:translateX(4px);box-shadow:0 8px 24px rgba(139,46,0,.08)}
+.li-left{display:flex;align-items:center;gap:.75rem;flex:1}
+.li-icon{width:36px;height:36px;border-radius:10px;background:rgba(196,98,45,.08);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.li-name{font-size:.85rem;font-weight:500;color:var(--text);line-height:1.3}
+.li-desc{font-size:.7rem;color:var(--muted);margin-top:.1rem}
+.li-price{font-family:'DM Mono',monospace;font-size:.9rem;font-weight:500;color:var(--brick);white-space:nowrap;text-align:right}
+.li-price-note{font-size:.6rem;color:var(--muted);text-align:right;margin-top:.1rem}
+
+/* ── PRICE VARIANTS TABLE ── */
+.variants-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:1.5rem}
+.variants-header{background:linear-gradient(135deg,var(--brick),var(--brick2));padding:1.2rem 1.5rem;display:flex;align-items:center;gap:.75rem}
+.vh-icon{font-size:1.6rem}
+.vh-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#FAF6EF}
+.vh-sub{font-size:.68rem;color:rgba(250,246,239,.6);margin-top:.1rem;letter-spacing:.04em}
+.variants-img{width:100%;height:200px;object-fit:cover;background:linear-gradient(135deg,var(--warm),rgba(196,98,45,.2));display:flex;align-items:center;justify-content:center;font-size:4rem;overflow:hidden}
+.variants-img img{width:100%;height:100%;object-fit:cover}
+.variants-body{padding:1rem 1.5rem}
+.variant-row{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--border)}
+.variant-row:last-child{border-bottom:none}
+.vr-name{font-size:.85rem;font-weight:500;color:var(--text)}
+.vr-desc{font-size:.65rem;color:var(--muted);margin-top:.1rem}
+.vr-price{font-family:'DM Mono',monospace;font-size:.95rem;color:var(--brick);font-weight:500}
+
+/* ── DOUBLE COL VARIANTS ── */
+.extras-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+
+/* ── SECTION DIVIDER ── */
+.sec-divider{display:flex;align-items:center;gap:.75rem;margin:1.5rem 0 1rem}
+.sd-line{flex:1;height:1px;background:var(--border)}
+.sd-label{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+
+/* ── FOOTER ── */
+footer{background:var(--dark);padding:2rem 1.5rem;text-align:center}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#FAF6EF;margin-bottom:.35rem}
+.footer-sub{font-size:.68rem;color:rgba(250,246,239,.35);letter-spacing:.08em}
+.footer-info{display:flex;justify-content:center;flex-wrap:wrap;gap:1.5rem;margin-top:1.25rem}
+.fi-item{text-align:center}
+.fi-label{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(212,168,67,.5);margin-bottom:.15rem}
+.fi-val{font-size:.78rem;color:rgba(250,246,239,.5)}
+
+/* ── AOS ── */
+.aos{opacity:0;transform:translateY(24px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
+.aos.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+@media(max-width:600px){
+  .items-grid{grid-template-columns:1fr}
+  .extras-grid{grid-template-columns:1fr}
+  .header-inner{padding:.8rem 1rem}
+  .hd-name{font-size:.95rem}
+  .hero-banner{padding:2rem 1.2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="hd-logo">
+      <div class="hd-logo-icon">🍲</div>
+      <div>
+        <div class="hd-name">Menudería Guadalajara</div>
+        <div class="hd-sub">Menú Digital Interactivo</div>
+      </div>
+    </div>
+    <div class="hd-badge">
+      <span class="hd-badge-dot"></span>
+      Menú activo
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero-banner">
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-ey">Bienvenido · Tradición desde Guadalajara</div>
+    <h1 class="hero-title">Sabor auténtico,<br><em>hecho con amor.</em></h1>
+    <p class="hero-sub">Selecciona una categoría y descubre nuestra cocina tapatía</p>
+    <div class="hero-line"></div>
+  </div>
+</div>
+
+<!-- NAV TABS -->
+<div class="nav-tabs-wrap">
+  <div class="nav-tabs" id="navTabs">
+    <div class="tab active" onclick="scrollTo('menudo')"><span class="tab-icon">🍲</span>Menudo</div>
+    <div class="tab" onclick="scrollTo('desayunos')"><span class="tab-icon">🍳</span>Desayunos</div>
+    <div class="tab" onclick="scrollTo('quesadillas')"><span class="tab-icon">🫓</span>Quesadillas</div>
+    <div class="tab" onclick="scrollTo('molletes')"><span class="tab-icon">🫓</span>Molletes</div>
+    <div class="tab" onclick="scrollTo('especialidades')"><span class="tab-icon">⭐</span>Especialidades</div>
+    <div class="tab" onclick="scrollTo('antojitos')"><span class="tab-icon">🌮</span>Antojitos</div>
+    <div class="tab" onclick="scrollTo('ninos')"><span class="tab-icon">🌟</span>Niños</div>
+    <div class="tab" onclick="scrollTo('postres')"><span class="tab-icon">🍮</span>Postres</div>
+    <div class="tab" onclick="scrollTo('bebidas')"><span class="tab-icon">☕</span>Bebidas</div>
+  </div>
+</div>
+
+<main>
+
+<!-- ═══ MENUDO ═══ -->
+<div class="menu-section" id="menudo">
+  <div class="sec-header">
+    <div class="sec-icon">🍲</div>
+    <div>
+      <div class="sec-title">Menudo</div>
+      <div class="sec-subtitle">Nuestro platillo estrella · Tradición 100% tapatía</div>
+    </div>
+  </div>
+
+  <div class="variants-card aos">
+    <div class="variants-header">
+      <span class="vh-icon">🍲</span>
+      <div>
+        <div class="vh-title">Menudo</div>
+        <div class="vh-sub">Caldo de res con panza y especias · Disponible en varios tamaños</div>
+      </div>
+    </div>
+    <div class="variants-img">
+      <img src="https://static.wixstatic.com/media/ccda11_9c51608ca10c46e585b3329076296001~mv2.jpg/v1/crop/x_0,y_1756,w_2304,h_806/fill/w_759,h_259,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/MENUDOWIX2.jpg" alt="Menudo" onerror="this.style.display='none'">
+    </div>
+    <div class="variants-body">
+      <div class="variant-row"><div><div class="vr-name">Mini</div></div><div class="vr-price">$154</div></div>
+      <div class="variant-row"><div><div class="vr-name">Chico</div></div><div class="vr-price">$184</div></div>
+      <div class="variant-row"><div><div class="vr-name">Grande</div></div><div class="vr-price">$199</div></div>
+      <div class="variant-row"><div><div class="vr-name">Extra Grande</div></div><div class="vr-price">$219</div></div>
+      <div class="variant-row"><div><div class="vr-name">Del Patrón</div><div class="vr-desc">Con Lengua de Res</div></div><div class="vr-price">$249</div></div>
+      <div class="variant-row"><div><div class="vr-name">Orden de Caldo</div></div><div class="vr-price">$55 / $110</div></div>
+      <div class="variant-row"><div><div class="vr-name">Orden de Grano</div></div><div class="vr-price">$30</div></div>
+      <div class="variant-row"><div><div class="vr-name">Bolillo</div></div><div class="vr-price">$35</div></div>
+      <div class="variant-row"><div><div class="vr-name">Bolillo con Mantequilla</div></div><div class="vr-price">$35</div></div>
+    </div>
+  </div>
+
+  <div class="sec-divider"><div class="sd-line"></div><span class="sd-label">Extras en tu plato</span><div class="sd-line"></div></div>
+
+  <div class="extras-grid">
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🥩</div><div><div class="li-name">Grano</div></div></div><div><div class="li-price">$44</div></div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">🦷</div><div><div class="li-name">Nervio</div></div></div><div><div class="li-price">$49</div></div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🦵</div><div><div class="li-name">Pata</div></div></div><div><div class="li-price">$49</div></div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">🥩</div><div><div class="li-name">Panza</div></div></div><div><div class="li-price">$59</div></div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🥩</div><div><div class="li-name">Callo</div></div></div><div><div class="li-price">$59</div></div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">👅</div><div><div class="li-name">Lengua de Res</div></div></div><div><div class="li-price">$74</div></div></div>
+  </div>
+</div>
+
+<!-- ═══ QUESADILLAS ═══ -->
+<div class="menu-section" id="quesadillas">
+  <div class="sec-header">
+    <div class="sec-icon">🫓</div>
+    <div>
+      <div class="sec-title">Quesadillas</div>
+      <div class="sec-subtitle">De maíz o harina · Recién hechas</div>
+    </div>
+  </div>
+  <div class="items-grid">
+    <div class="item aos"><div class="item-img-placeholder"><span class="ph-icon">🫓</span><span class="ph-label">Foto próximamente</span></div><div class="item-body"><div class="item-name">Sencilla</div><p class="item-desc">Tortilla de maíz o harina con queso fundido</p><div class="item-footer"><div><div class="item-price">$49</div></div></div></div></div>
+    <div class="item aos d1"><div class="item-img-placeholder"><span class="ph-icon">🥩</span><span class="ph-label">Foto próximamente</span></div><div class="item-body"><div class="item-name">De Pancita</div><p class="item-desc">Rellena de pancita de res con queso</p><div class="item-footer"><div><div class="item-price">$79</div></div><span class="item-tag tag-popular">Popular</span></div></div></div>
+    <div class="item aos d2"><div class="item-img-placeholder"><span class="ph-icon">🥩</span><span class="ph-label">Foto próximamente</span></div><div class="item-body"><div class="item-name">De Arrachera</div><p class="item-desc">Arrachera asada con queso derretido</p><div class="item-footer"><div><div class="item-price">$99</div></div><span class="item-tag tag-especial">Chef's pick</span></div></div></div>
+    <div class="item aos d3"><div class="item-img-placeholder"><span class="ph-icon">👅</span><span class="ph-label">Foto próximamente</span></div><div class="item-body"><div class="item-name">Lengua</div><p class="item-desc">Lengua de res tierna con queso fundido</p><div class="item-footer"><div><div class="item-price">$115</div></div></div></div></div>
+    <div class="item aos d1"><div class="item-img-placeholder"><span class="ph-icon">🦐</span><span class="ph-label">Foto próximamente</span></div><div class="item-body"><div class="item-name">Camarón</div><p class="item-desc">Camarones frescos con queso</p><div class="item-footer"><div><div class="item-price">$99</div></div></div></div></div>
+    <div class="item aos d2"><div class="item-img-placeholder"><span class="ph-icon">🥩</span><span class="ph-label">Foto próximamente</span></div><div class="item-body"><div class="item-name">Carnitas</div><p class="item-desc">Carnitas de cerdo con queso derretido</p><div class="item-footer"><div><div class="item-price">$79</div></div></div></div></div>
+    <div class="item aos d3"><div class="item-img-placeholder"><span class="ph-icon">🧀</span><span class="ph-label">Foto próximamente</span></div><div class="item-body"><div class="item-name">Chicharrón de Cachete</div><p class="item-desc">Chicharrón de cachete crujiente con queso</p><div class="item-footer"><div><div class="item-price">$99</div></div></div></div></div>
+    <div class="item aos d1"><div class="item-img-placeholder"><span class="ph-icon">👑</span><span class="ph-label">Foto próximamente</span></div><div class="item-body"><div class="item-name">Del Patrón</div><p class="item-desc">Arrachera y camarón · La combinación estrella</p><div class="item-footer"><div><div class="item-price">$129</div></div><span class="item-tag tag-especial">Especial</span></div></div></div>
+  </div>
+</div>
+
+<!-- ═══ MOLLETES ═══ -->
+<div class="menu-section" id="molletes">
+  <div class="sec-header">
+    <div class="sec-icon">🍞</div>
+    <div>
+      <div class="sec-title">Molletes</div>
+      <div class="sec-subtitle">Salados y dulces · Bolillo fresco horneado</div>
+    </div>
+  </div>
+
+  <div class="sec-divider"><div class="sd-line"></div><span class="sd-label">Molletes Salados</span><div class="sd-line"></div></div>
+  <div class="items-list" style="margin-bottom:1.5rem">
+    <div class="list-item aos"><div class="li-left"><div class="li-icon">🧀</div><div><div class="li-name">Queso y Frijol</div></div></div><div><div class="li-price">$49 / $85</div><div class="li-price-note">Media / Orden</div></div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🌶️</div><div><div class="li-name">Chorizo, Frijol y Queso</div></div></div><div><div class="li-price">$69 / $99</div><div class="li-price-note">Media / Orden</div></div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">🥩</div><div><div class="li-name">Arrachera, Frijol y Queso</div><div class="li-desc">El favorito de la casa</div></div></div><div><div class="li-price">$109 / $199</div><div class="li-price-note">Media / Orden</div></div></div>
+  </div>
+
+  <div class="sec-divider"><div class="sd-line"></div><span class="sd-label">Molletes Dulces</span><div class="sd-line"></div></div>
+  <div class="extras-grid">
+    <div class="list-item aos"><div class="li-left"><div class="li-icon">🧈</div><div><div class="li-name">Mantequilla y Azúcar</div></div></div><div><div class="li-price">$49 / $85</div></div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🥛</div><div><div class="li-name">Mantequilla y Lechera</div></div></div><div><div class="li-price">$49 / $85</div></div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">🍓</div><div><div class="li-name">Mantequilla y Mermelada</div></div></div><div><div class="li-price">$49 / $85</div></div></div>
+    <div class="list-item aos d3"><div class="li-left"><div class="li-icon">🍫</div><div><div class="li-name">Nutella con Fresa y/o Plátano</div></div></div><div><div class="li-price">$59 / $95</div></div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🍯</div><div><div class="li-name">Cajeta</div></div></div><div><div class="li-price">$59 / $95</div></div></div>
+  </div>
+</div>
+
+<!-- ═══ DESAYUNOS ═══ -->
+<div class="menu-section" id="desayunos">
+  <div class="sec-header">
+    <div class="sec-icon">🍳</div>
+    <div>
+      <div class="sec-title">Desayunos</div>
+      <div class="sec-subtitle">Incluye acompañamientos según el platillo</div>
+    </div>
+  </div>
+
+  <!-- HUEVO -->
+  <div class="sec-divider"><div class="sd-line"></div><span class="sd-label">Huevo · incluye tocino + 2 guarniciones (papa, chilaquiles o frijol)</span><div class="sd-line"></div></div>
+  <div class="items-list" style="margin-bottom:1.5rem">
+    <div class="list-item aos"><div class="li-left"><div class="li-icon">🌶️</div><div><div class="li-name">A la Mexicana</div></div></div><div class="li-price">$139</div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🍅</div><div><div class="li-name">Rancheros</div></div></div><div class="li-price">$139</div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">🥓</div><div><div class="li-name">Revueltos</div><div class="li-desc">Con chorizo, jamón o tocino</div></div></div><div class="li-price">$145</div></div>
+    <div class="list-item aos d3"><div class="li-left"><div class="li-icon">⭐</div><div><div class="li-name">Combo Guadalajara</div></div></div><div class="li-price">$189</div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🥩</div><div><div class="li-name">Con Machaca</div></div></div><div class="li-price">$179</div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">🥩</div><div><div class="li-name">Con Arrachera</div></div></div><div class="li-price">$199</div></div>
+    <div class="list-item aos d3"><div class="li-left"><div class="li-icon">🦐</div><div><div class="li-name">Con Camarón</div></div></div><div class="li-price">$199</div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">👑</div><div><div class="li-name">Del Patrón</div><div class="li-desc">Arrachera y Camarón</div></div></div><div class="li-price">$209</div></div>
+  </div>
+
+  <!-- OMELETTE -->
+  <div class="sec-divider"><div class="sd-line"></div><span class="sd-label">Omelette · incluye tocino + 2 guarniciones</span><div class="sd-line"></div></div>
+  <div class="items-list" style="margin-bottom:1.5rem">
+    <div class="list-item aos"><div class="li-left"><div class="li-icon">🍳</div><div><div class="li-name">Al Gusto</div><div class="li-desc">Queso + 2 ingredientes: jamón, champiñones, espinacas o tocino</div></div></div><div class="li-price">$164</div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🥩</div><div><div class="li-name">Con Arrachera</div></div></div><div class="li-price">$199</div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">🦐</div><div><div class="li-name">Con Camarón</div></div></div><div class="li-price">$199</div></div>
+    <div class="list-item aos d3"><div class="li-left"><div class="li-icon">🥩</div><div><div class="li-name">De Chicharrón</div></div></div><div class="li-price">$199</div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">👑</div><div><div class="li-name">Del Patrón</div><div class="li-desc">Arrachera y Camarón</div></div></div><div class="li-price">$239</div></div>
+  </div>
+
+  <!-- CHILAQUILES -->
+  <div class="sec-divider"><div class="sd-line"></div><span class="sd-label">Chilaquiles · incluye tocino, papa y frijol</span><div class="sd-line"></div></div>
+  <div class="items-list">
+    <div class="list-item aos"><div class="li-left"><div class="li-icon">🌶️</div><div><div class="li-name">Sencillos</div><div class="li-desc">Rojos, verdes o chipotle</div></div></div><div class="li-price">$129</div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🍳</div><div><div class="li-name">Con Huevo</div></div></div><div class="li-price">$154</div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">🍗</div><div><div class="li-name">Con Pollo</div></div></div><div class="li-price">$164</div></div>
+    <div class="list-item aos d3"><div class="li-left"><div class="li-icon">🥩</div><div><div class="li-name">Con Arrachera</div></div></div><div class="li-price">$199</div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🦐</div><div><div class="li-name">Con Camarón</div></div></div><div class="li-price">$199</div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">👑</div><div><div class="li-name">Del Patrón</div><div class="li-desc">Arrachera y Camarón</div></div></div><div class="li-price">$239</div></div>
+  </div>
+</div>
+
+<!-- ═══ ESPECIALIDADES ═══ -->
+<div class="menu-section" id="especialidades">
+  <div class="sec-header">
+    <div class="sec-icon">⭐</div>
+    <div>
+      <div class="sec-title">Especialidades</div>
+      <div class="sec-subtitle">Los platillos que nos hacen únicos</div>
+    </div>
+  </div>
+
+  <div class="items-grid" style="margin-bottom:1.5rem">
+    <div class="item aos">
+      <div class="item-img-placeholder" style="background:linear-gradient(135deg,rgba(139,46,0,.08),rgba(196,98,45,.15))"><span class="ph-icon">🥣</span><span class="ph-label">Foto próximamente</span></div>
+      <div class="item-body"><div class="item-name">Caldo de Res</div><p class="item-desc">Caldo de res con verduras de temporada</p><div class="item-footer"><div class="item-price">$199</div><span class="item-tag tag-popular">Popular</span></div></div>
+    </div>
+    <div class="item aos d1">
+      <div class="item-img-placeholder"><span class="ph-icon">🥣</span><span class="ph-label">Foto próximamente</span></div>
+      <div class="item-body"><div class="item-name">Pozole</div><p class="item-desc">Pozole rojo o verde con todos los toppings</p><div class="item-footer"><div class="item-price">$179</div></div></div>
+    </div>
+    <div class="item aos d2">
+      <div class="item-img-placeholder"><span class="ph-icon">🍗</span><span class="ph-label">Foto próximamente</span></div>
+      <div class="item-body"><div class="item-name">Caldo de Pollo</div><p class="item-desc">Caldo casero de pollo con verduras</p><div class="item-footer"><div class="item-price">$139</div></div></div>
+    </div>
+    <div class="item aos d3">
+      <div class="item-img-placeholder"><span class="ph-icon">🫑</span><span class="ph-label">Foto próximamente</span></div>
+      <div class="item-body"><div class="item-name">Chile Relleno</div><p class="item-desc">Carne o queso · Tradicional estilo Guadalajara</p><div class="item-footer"><div class="item-price">$164</div></div></div>
+    </div>
+    <div class="item aos d1">
+      <div class="item-img-placeholder"><span class="ph-icon">🥩</span><span class="ph-label">Foto próximamente</span></div>
+      <div class="item-body"><div class="item-name">Arrachera Asada</div><p class="item-desc">Arrachera entera al carbón con guarniciones</p><div class="item-footer"><div class="item-price">$249</div><span class="item-tag tag-especial">Especial</span></div></div>
+    </div>
+    <div class="item aos d2">
+      <div class="item-img-placeholder"><span class="ph-icon">🥘</span><span class="ph-label">Foto próximamente</span></div>
+      <div class="item-body"><div class="item-name">Fajitas de Arrachera</div><p class="item-desc">Fajitas con pimientos y cebollas salteadas</p><div class="item-footer"><div class="item-price">$254</div></div></div>
+    </div>
+    <div class="item aos d3">
+      <div class="item-img-placeholder"><span class="ph-icon">🥩</span><span class="ph-label">Foto próximamente</span></div>
+      <div class="item-body"><div class="item-name">Carne en su Jugo</div><p class="item-desc">Clásico tapatío en su punto</p><div class="item-footer"><div class="item-price">$249</div><span class="item-tag tag-popular">Popular</span></div></div>
+    </div>
+    <div class="item aos d1">
+      <div class="item-img-placeholder"><span class="ph-icon">⭐</span><span class="ph-label">Foto próximamente</span></div>
+      <div class="item-body"><div class="item-name">Combo Guadalajara</div><p class="item-desc">La combinación completa de la casa</p><div class="item-footer"><div class="item-price">$189</div></div></div>
+    </div>
+  </div>
+
+  <!-- MOLCAJETES -->
+  <div class="sec-divider"><div class="sd-line"></div><span class="sd-label">Molcajetes</span><div class="sd-line"></div></div>
+  <div class="items-grid">
+    <div class="item aos"><div class="item-img-placeholder"><span class="ph-icon">🪨</span><span class="ph-label">Foto próximamente</span></div><div class="item-body"><div class="item-name">Molcajete de Huevo</div><p class="item-desc">Presentación en molcajete de piedra volcánica</p><div class="item-footer"><div class="item-price">$169</div></div></div></div>
+    <div class="item aos d1"><div class="item-img-placeholder"><span class="ph-icon">🦐</span><span class="ph-label">Foto próximamente</span></div><div class="item-body"><div class="item-name">Molcajete de Camarón</div><p class="item-desc">Camarones frescos en molcajete</p><div class="item-footer"><div class="item-price">$299</div><span class="item-tag tag-especial">Especial</span></div></div></div>
+    <div class="item aos d2"><div class="item-img-placeholder"><span class="ph-icon">🥩</span><span class="ph-label">Foto próximamente</span></div><div class="item-body"><div class="item-name">Molcajete de Arrachera</div><p class="item-desc">Arrachera en molcajete con salsa especial</p><div class="item-footer"><div class="item-price">$309</div></div></div></div>
+    <div class="item aos d3"><div class="item-img-placeholder"><span class="ph-icon">👑</span><span class="ph-label">Foto próximamente</span></div><div class="item-body"><div class="item-name">Molcajete del Patrón</div><p class="item-desc">Arrachera + camarón · La experiencia completa</p><div class="item-footer"><div class="item-price">$319</div><span class="item-tag tag-especial">Chef's pick</span></div></div></div>
+  </div>
+</div>
+
+<!-- ═══ ANTOJITOS ═══ -->
+<div class="menu-section" id="antojitos">
+  <div class="sec-header">
+    <div class="sec-icon">🌮</div>
+    <div>
+      <div class="sec-title">Antojitos</div>
+      <div class="sec-subtitle">Sabores de México en cada bocado</div>
+    </div>
+  </div>
+  <div class="items-list">
+    <div class="list-item aos"><div class="li-left"><div class="li-icon">🌮</div><div><div class="li-name">Tacos Dorados</div><div class="li-desc">De res o pollo</div></div></div><div class="li-price">$49</div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🌯</div><div><div class="li-name">Flautas</div><div class="li-desc">De res o pollo</div></div></div><div class="li-price">$49</div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">🫓</div><div><div class="li-name">Sopes</div><div class="li-desc">De res o pollo</div></div></div><div class="li-price">$49</div></div>
+    <div class="list-item aos d3"><div class="li-left"><div class="li-icon">🥙</div><div><div class="li-name">Tostadas</div><div class="li-desc">De res o pollo</div></div></div><div class="li-price">$49</div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🧀</div><div><div class="li-name">Enchiladas</div><div class="li-desc">De pollo o queso</div></div></div><div class="li-price">$169</div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">🫔</div><div><div class="li-name">Tamales de Res</div></div></div><div class="li-price">$59</div></div>
+    <div class="list-item aos d3"><div class="li-left"><div class="li-icon">🌽</div><div><div class="li-name">Tamales de Elote</div></div></div><div class="li-price">$59</div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🫔</div><div><div class="li-name">Tamales de Phil c/ Zarzamora</div><div class="li-desc">Especialidad única de la casa</div></div></div><div class="li-price">$59</div></div>
+  </div>
+</div>
+
+<!-- ═══ MENÚ NIÑOS ═══ -->
+<div class="menu-section" id="ninos">
+  <div class="sec-header">
+    <div class="sec-icon">🌟</div>
+    <div>
+      <div class="sec-title">Menú Niños</div>
+      <div class="sec-subtitle">Pensado para los más pequeños de la mesa</div>
+    </div>
+  </div>
+  <div class="items-grid">
+    <div class="item aos">
+      <div class="item-img-placeholder" style="background:linear-gradient(135deg,rgba(255,193,7,.08),rgba(255,152,0,.12))"><span class="ph-icon">🥞</span><span class="ph-label">Foto próximamente</span></div>
+      <div class="item-body"><div class="item-name">Mini Hot Cakes</div><p class="item-desc">4 piezas esponjosos hot cakes mini para niños</p><div class="item-footer"><div class="item-price">$84</div></div></div>
+    </div>
+    <div class="item aos d1">
+      <div class="item-img-placeholder" style="background:linear-gradient(135deg,rgba(255,193,7,.08),rgba(255,152,0,.12))"><span class="ph-icon">⭐</span><span class="ph-label">Foto próximamente</span></div>
+      <div class="item-body"><div class="item-name">Combo Niños</div><p class="item-desc">2 huevos revueltos con jamón y papa de la casa + 2 mini hotcakes de carita feliz</p><div class="item-footer"><div class="item-price">$124</div><span class="item-tag tag-popular">Favorito</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ POSTRES ═══ -->
+<div class="menu-section" id="postres">
+  <div class="sec-header">
+    <div class="sec-icon">🍮</div>
+    <div>
+      <div class="sec-title">Postres</div>
+      <div class="sec-subtitle">El toque dulce perfecto para cerrar</div>
+    </div>
+  </div>
+  <div class="extras-grid">
+    <div class="list-item aos"><div class="li-left"><div class="li-icon">🍞</div><div><div class="li-name">Conchita</div></div></div><div class="li-price">$30</div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🥟</div><div><div class="li-name">Empanadas</div></div></div><div class="li-price">$59</div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">🍪</div><div><div class="li-name">Coricos</div></div></div><div class="li-price">$59</div></div>
+    <div class="list-item aos d3"><div class="li-left"><div class="li-icon">🍮</div><div><div class="li-name">Jericalla chica</div></div></div><div class="li-price">$59</div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🥞</div><div><div class="li-name">Hotcake</div></div></div><div class="li-price">$84</div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">🍮</div><div><div class="li-name">Jericalla grande</div></div></div><div class="li-price">$79</div></div>
+    <div class="list-item aos d3"><div class="li-left"><div class="li-icon">🍰</div><div><div class="li-name">Cheesecake de Fresa</div></div></div><div class="li-price">$99</div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🍫</div><div><div class="li-name">Cheesecake Tortuga</div></div></div><div class="li-price">$99</div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">🍰</div><div><div class="li-name">Cheesecake Lotus</div></div></div><div class="li-price">$125</div></div>
+    <div class="list-item aos d3"><div class="li-left"><div class="li-icon">🍫</div><div><div class="li-name">Cheesecake Nutella</div></div></div><div class="li-price">$99</div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🥕</div><div><div class="li-name">Rebanada Pastel Zanahoria</div></div></div><div class="li-price">$100</div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">🌽</div><div><div class="li-name">Pan de Elote</div></div></div><div class="li-price">$65</div></div>
+    <div class="list-item aos d3"><div class="li-left"><div class="li-icon">🍞</div><div><div class="li-name">Pan Francés</div></div></div><div class="li-price">$124</div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🌽</div><div><div class="li-name">Rosca Elote Mini</div></div></div><div class="li-price">$69</div></div>
+  </div>
+</div>
+
+<!-- ═══ BEBIDAS ═══ -->
+<div class="menu-section" id="bebidas">
+  <div class="sec-header">
+    <div class="sec-icon">☕</div>
+    <div>
+      <div class="sec-title">Bebidas</div>
+      <div class="sec-subtitle">Para acompañar tu experiencia</div>
+    </div>
+  </div>
+  <div class="extras-grid">
+    <div class="list-item aos"><div class="li-left"><div class="li-icon">💧</div><div><div class="li-name">Botella de Agua Natural</div></div></div><div class="li-price">$30</div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🥛</div><div><div class="li-name">Vaso de Leche</div></div></div><div class="li-price">$39</div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">🫙</div><div><div class="li-name">Aguas Frescas</div></div></div><div class="li-price">$45</div></div>
+    <div class="list-item aos d3"><div class="li-left"><div class="li-icon">☕</div><div><div class="li-name">Café Americano</div></div></div><div class="li-price">$45</div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🥤</div><div><div class="li-name">Sodas</div></div></div><div class="li-price">$45</div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">🍋</div><div><div class="li-name">Limonada</div></div></div><div class="li-price">$45</div></div>
+    <div class="list-item aos d3"><div class="li-left"><div class="li-icon">🍊</div><div><div class="li-name">Naranjada</div></div></div><div class="li-price">$49</div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🍫</div><div><div class="li-name">Chocomilk</div></div></div><div class="li-price">$45</div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">☕</div><div><div class="li-name">Chocolate Caliente</div></div></div><div class="li-price">$55</div></div>
+    <div class="list-item aos d3"><div class="li-left"><div class="li-icon">🫙</div><div><div class="li-name">Café de la Olla</div></div></div><div class="li-price">$49</div></div>
+    <div class="list-item aos d1"><div class="li-left"><div class="li-icon">🍊</div><div><div class="li-name">Jugo de Naranja</div></div></div><div class="li-price">$79</div></div>
+    <div class="list-item aos d2"><div class="li-left"><div class="li-icon">🥬</div><div><div class="li-name">Jugo Verde</div></div></div><div class="li-price">$79</div></div>
+    <div class="list-item aos d3"><div class="li-left"><div class="li-icon">🍦</div><div><div class="li-name">Malteada</div><div class="li-desc">Vainilla, chocolate o fresa</div></div></div><div class="li-price">$89</div></div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="footer-logo">Menudería Guadalajara</div>
+  <p class="footer-sub">Tradición tapatía auténtica · Desde Guadalajara para el mundo</p>
+  <div class="footer-info">
+    <div class="fi-item"><div class="fi-label">Visítanos en</div><div class="fi-val">menuderiaguadalajara.com</div></div>
+    <div class="fi-item"><div class="fi-label">Sucursales</div><div class="fi-val">Baja California · Guadalajara</div></div>
+  </div>
+  <p style="font-size:.6rem;color:rgba(250,246,239,.2);margin-top:1.5rem;letter-spacing:.06em">Menú sujeto a cambios sin previo aviso · Precios en MXN incluyen IVA</p>
+</footer>
+
+<script>
+// AOS
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});
+document.querySelectorAll('.aos').forEach(el=>obs.observe(el));
+
+// Tab scroll
+function scrollTo(id){
+  const el=document.getElementById(id);
+  if(el){
+    const offset=140;
+    const top=el.getBoundingClientRect().top+window.scrollY-offset;
+    window.scrollTo({top,behavior:'smooth'});
+  }
+}
+
+// Active tab on scroll
+const sections=['menudo','quesadillas','molletes','desayunos','especialidades','antojitos','ninos','postres','bebidas'];
+const tabMap={'menudo':0,'quesadillas':2,'molletes':3,'desayunos':1,'especialidades':4,'antojitos':5,'ninos':6,'postres':7,'bebidas':8};
+const tabs=document.querySelectorAll('.tab');
+window.addEventListener('scroll',()=>{
+  let current='menudo';
+  sections.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el&&window.scrollY>=el.offsetTop-200)current=id;
+  });
+  tabs.forEach(t=>t.classList.remove('active'));
+  const idx=tabMap[current];
+  if(tabs[idx])tabs[idx].classList.add('active');
+});
+</script>
+</body>
+</html>
